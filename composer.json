@@ -1,8 +1,9 @@
 {
-    "name": "beter/php-exception-with-context",
+    "name": "beter/exception-with-context",
     "description": "Interface, Trait and Class of the exception with a context",
-    "type": "yii2-extension",
+    "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/BETER-CO/php-exception-with-context",
     "keywords": [
         "beter", "exception", "error", "context", "exception with context", "exception-wtih-context"
     ],
@@ -25,10 +26,5 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
-    ],
-    "config": {
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true
-        }
-    }
+    ]
 }
