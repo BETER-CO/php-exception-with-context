@@ -1,14 +1,14 @@
 {
-    "name": "beter/yii2-exception-with-context",
-    "description": "The set of Yii2 exceptions with a context.",
+    "name": "beter/php-exception-with-context",
+    "description": "Interface, Trait and Class of the exception with a context",
     "type": "yii2-extension",
     "license": "MIT",
     "keywords": [
-        "beter", "yii", "exception", "error", "context", "exception with context", "exception-wtih-context"
+        "beter", "exception", "error", "context", "exception with context", "exception-wtih-context"
     ],
     "autoload": {
         "psr-4": {
-            "Beter\\Yii2\\Exception\\": "src/"
+            "Beter\\Exception\\": "src/"
         }
     },
     "authors": [
