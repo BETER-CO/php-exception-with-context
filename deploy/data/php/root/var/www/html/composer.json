@@ -1,0 +1,32 @@
+{
+  "name": "test/app",
+  "description": "test-app",
+  "type": "project",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.4.0",
+    "beter/exception-with-context": "dev-main"
+  },
+  "require-dev": {
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    },
+    {
+      "type": "path",
+      "url": "/package-src",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
+}

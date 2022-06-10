@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  exception-with-context-php:
+    container_name: "exception-with-context-php"
+    hostname: "exception-with-context-php"
+    build:
+      context: .
+      dockerfile: "php.dev.Dockerfile"
+    volumes:
+      - "./test-app-src:/var/www/html"
+      - "./:/package-src"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  exception-with-context-nginx:
+    container_name: "exception-with-context-nginx"
+    image: "nginx:1.21.6-alpine"
+    ports:
+      - "${HOST_NGINX_PORT:-8080}:80"
+    volumes:
+      - "./test-app-src:/var/www/html"
+      - "./deploy/data/nginx/root/etc/nginx/nginx.conf:/etc/nginx/nginx.conf"
+      - "./deploy/data/nginx/root/etc/nginx/fastcgi_params:/etc/nginx/fastcgi_params"
+      - "./deploy/data/nginx/root/etc/nginx/conf.d:/etc/nginx/conf.d"
+    depends_on:
+      - "exception-with-context-php"
