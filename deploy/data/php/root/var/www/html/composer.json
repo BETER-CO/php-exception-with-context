@@ -3,7 +3,7 @@
   "description": "test-app",
   "type": "project",
   "license": "MIT",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.4.0",
     "beter/exception-with-context": "dev-main"
