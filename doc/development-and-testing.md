@@ -42,7 +42,7 @@ you can remove the whole `test-app-src` folder and redo all the steps in the ["L
 3. Next step in the build pipeline copies custom files from the repo
    (`deploy/data/php/root/var/www/html`) to the image.
 4. Custom files contains php scripts and updated `composer.json`, so `composer update` will be executed.
-5. Custom `composer.json` specifies `"beter/exception-with-context": "dev-master"` and symlinks `/package-src` folder
+5. Custom `composer.json` specifies `"beter/exception-with-context": "dev-main"` and symlinks `/package-src` folder
    in the container with the `beter/exception-with-context` package. This requires to mount volume later, but gives 
    possibility to change source files right in the `src/` folder on the host machine and immediately see that changes inside running
    container.
@@ -59,7 +59,7 @@ Open `http://localhost:8080/index.php` (or specify custom part as it was specifi
 
 If you want to test specific version of the package you have 2 options:
 * just edit `composer.json` before the docker build and replace `"beter/exception-with-context": "dev-master"` to specific version.
-* after the build phase change `"beter/exception-with-context": "dev-master"` inside running container and run `composer update`.
+* after the build phase change `"beter/exception-with-context": "dev-main"` inside running container and run `composer update`.
 
 ## Development and testng pipeline
 
