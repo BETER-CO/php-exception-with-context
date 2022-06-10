@@ -1,0 +1,34 @@
+{
+    "name": "beter/yii2-exception-with-context",
+    "description": "The set of Yii2 exceptions with a context.",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "keywords": [
+        "beter", "yii", "exception", "error", "context", "exception with context", "exception-wtih-context"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Beter\\Yii2\\Exception\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dmitry Menshikov",
+            "email": "d.menshikov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
