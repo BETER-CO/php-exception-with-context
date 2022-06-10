@@ -8,8 +8,6 @@
     "php": ">=7.4.0",
     "beter/exception-with-context": "dev-main"
   },
-  "require-dev": {
-  },
   "config": {
     "process-timeout": 1800,
     "fxp-asset": {

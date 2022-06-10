@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "39438f85dbde80f2d567fdb2629f0409",
+    "packages": [
+        {
+            "name": "beter/exception-with-context",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/package-src",
+                "reference": "946d90aca7800e0a27ad1c28485f0642124403ee"
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Beter\\ExceptionWithContext\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Menshikov",
+                    "email": "d.menshikov@gmail.com"
+                }
+            ],
+            "description": "Interface, Trait and Class of the exception with a context",
+            "homepage": "https://github.com/BETER-CO/php-exception-with-context",
+            "keywords": [
+                "beter",
+                "context",
+                "error",
+                "exception",
+                "exception with context",
+                "exception-wtih-context"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "beter/exception-with-context": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.4.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

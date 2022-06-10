@@ -24,7 +24,7 @@ RUN set -eux; \
 COPY ./deploy/data/php/root/ /
 
 RUN set -eux; \
-    export PACKAGE_VERSION="1.0.0"; \
+    export PACKAGE_VERSION="1.0.1"; \
     export \
       PACKAGE_URL="https://github.com/BETER-CO/php-exception-with-context/archive/refs/tags/${PACKAGE_VERSION}.tar.gz" \
       PACKAGE_ARCH_NAME="php-exception-with-context.tar.gz" \

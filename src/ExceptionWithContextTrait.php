@@ -1,6 +1,6 @@
 <?php
 
-namespace Beter\Exception;
+namespace Beter\ExceptionWithContext;
 
 trait ExceptionWithContextTrait
 {

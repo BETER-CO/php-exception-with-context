@@ -1,6 +1,6 @@
 <?php
 
-namespace Beter\Exception;
+namespace Beter\ExceptionWithContext;
 
 /**
  * Implementation of the exception with context.

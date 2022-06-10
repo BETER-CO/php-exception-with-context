@@ -2,9 +2,9 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Beter\Exception\ExceptionWithContext;
-use Beter\Exception\ExceptionWithContextInterface;
-use Beter\Exception\ExceptionWithContextTrait;
+use Beter\ExceptionWithContext\ExceptionWithContext;
+use Beter\ExceptionWithContext\ExceptionWithContextInterface;
+use Beter\ExceptionWithContext\ExceptionWithContextTrait;
 
 $e = new ExceptionWithContext('message', 1, null, ['key' => 'value']);
 

@@ -27,7 +27,7 @@ to the `require` section of your composer.json.
 Usage of the `ExceptionWithContext`:
 
 ```php
-use Beter\Exception\ExceptionWithContext;
+use Beter\ExceptionWithContext\ExceptionWithContext;
 
 $exceptionCode = 0;
 $previousException = null;
@@ -60,7 +60,7 @@ var_dump($e->getContext());
 You may create a chain of exceptions too:
 
 ```php
-use Beter\Exception\ExceptionWithContext;
+use Beter\ExceptionWithContext\ExceptionWithContext;
 
 try {
     do_smth();
@@ -72,8 +72,8 @@ try {
 You may redefine your base exceptions and add context trait to them. They will behave the same way.
 
 ```php
-use Beter\Exception\ExceptionWithContextInterface;
-use Beter\Exception\ExceptionWithContextTrait;
+use Beter\ExceptionWithContext\ExceptionWithContextInterface;
+use Beter\ExceptionWithContext\ExceptionWithContextTrait;
 
 class CustomException extends \Exception implements ExceptionWithContextInterface
 {
