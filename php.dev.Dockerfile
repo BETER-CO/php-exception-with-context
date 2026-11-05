@@ -1,37 +1,27 @@
-FROM php:8.5-fpm-alpine
+FROM php:8.5-fpm-alpine AS php-runtime
 
 COPY --from=mlocati/php-extension-installer:2.13.1 /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=composer:2.11.1 /usr/bin/composer /usr/local/bin/composer
 
 RUN set -eux; \
     rm /usr/local/etc/php-fpm.conf \
        /usr/local/etc/php-fpm.conf.default \
-       /usr/local/etc/php/php.ini-development \
-       /usr/local/etc/php/php.ini-production \
     ; \
     rm -rf /usr/local/etc/php-fpm.d
 
 RUN set -eux; \
-    export \
-      XDEBUG_VERSION=3.5.3 \
-      COMPOSER_VERSION=2.11.1 \
-    ; \
     install-php-extensions \
-      xdebug-${XDEBUG_VERSION} \
-      intl \
-      @composer-${COMPOSER_VERSION} \
+      xdebug-3.5.3 \
     ;
 
-COPY ./deploy/data/php/root/ /
+COPY ./deploy/data/php/root/usr/local/etc/ /usr/local/etc/
 
-RUN set -eux; \
-    export PACKAGE_VERSION="1.0.1"; \
-    export \
-      PACKAGE_URL="https://github.com/BETER-CO/php-exception-with-context/archive/refs/tags/${PACKAGE_VERSION}.tar.gz" \
-      PACKAGE_ARCH_NAME="php-exception-with-context.tar.gz" \
-      PACKAGE_ARCH_DIR="php-exception-with-context-${PACKAGE_VERSION}" \
-    ; \
-    curl -fsSL -o "/${PACKAGE_ARCH_NAME}" "${PACKAGE_URL}"; \
-    tar -xzf "/${PACKAGE_ARCH_NAME}" -C /tmp/; \
-    rm "/${PACKAGE_ARCH_NAME}"; \
-    mv /tmp/${PACKAGE_ARCH_DIR} /package-src; \
-    composer update
+RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+FROM php-runtime AS development
+
+COPY ./deploy/data/php/root/var/www/html/ /var/www/html/
+COPY ./composer.json /package-src/composer.json
+COPY ./src/ /package-src/src/
+
+RUN composer install --no-interaction --prefer-dist
