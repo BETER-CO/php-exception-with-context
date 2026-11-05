@@ -23,7 +23,7 @@ class ExceptionWithContext extends \Exception implements ExceptionWithContextInt
      * @param array $context key-value array with context data you want to store in this exception for further
      *   processing
      */
-    public function __construct($message = "", $code = 0, \Throwable $previous = null, array $context = [])
+    public function __construct($message = "", $code = 0, ?\Throwable $previous = null, array $context = [])
     {
         parent::__construct($message, $code, $previous);
 
