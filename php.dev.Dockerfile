@@ -1,6 +1,6 @@
-FROM php:7.4.29-fpm-alpine3.15
+FROM php:8.5-fpm-alpine
 
-COPY --from=mlocati/php-extension-installer:1.5.14 /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer:2.13.1 /usr/bin/install-php-extensions /usr/local/bin/
 
 RUN set -eux; \
     rm /usr/local/etc/php-fpm.conf \
@@ -12,8 +12,8 @@ RUN set -eux; \
 
 RUN set -eux; \
     export \
-      XDEBUG_VERSION=3.1.4 \
-      COMPOSER_VERSION=2.3.5 \
+      XDEBUG_VERSION=3.5.3 \
+      COMPOSER_VERSION=2.11.1 \
     ; \
     install-php-extensions \
       xdebug-${XDEBUG_VERSION} \
