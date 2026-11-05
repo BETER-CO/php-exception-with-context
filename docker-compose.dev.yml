@@ -1,9 +1,8 @@
-version: "3.7"
-
 services:
   exception-with-context-php:
     container_name: "exception-with-context-php"
     hostname: "exception-with-context-php"
+    image: "exception-with-context-php:latest"
     build:
       context: .
       dockerfile: "php.dev.Dockerfile"
@@ -15,7 +14,7 @@ services:
 
   exception-with-context-nginx:
     container_name: "exception-with-context-nginx"
-    image: "nginx:1.21.6-alpine"
+    image: "nginx:1.30.6-alpine"
     ports:
       - "${HOST_NGINX_PORT:-8080}:80"
     volumes:

@@ -4,6 +4,8 @@
 
 PHP >= 7.4.0
 
+Compatible with PHP 8.5.
+
 ## Installation
 
 The preferred way to install this extension is through [composer](https://getcomposer.org/).
@@ -79,7 +81,7 @@ class CustomException extends \Exception implements ExceptionWithContextInterfac
 {
     use ExceptionWithContextTrait;
 
-    public function __construct($message = "", $code = 0, Throwable $previous = null, array $context = [])
+    public function __construct($message = "", $code = 0, ?Throwable $previous = null, array $context = [])
     {
         $this->context = $context;
 
@@ -93,7 +95,7 @@ var_dump($e->getContext());
 ```
 
 Also, you may implement your own custom exceptions, you even don't need to use traits.
-Just implement `Beter\Exception\ExceptionWithContextInterface`.
+Just implement `Beter\ExceptionWithContext\ExceptionWithContextInterface`.
 
 ### Ideas for usage
 
