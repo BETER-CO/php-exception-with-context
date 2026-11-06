@@ -22,23 +22,23 @@ function help() {
 }
 
 up() {
-  docker-compose up -d
+  docker compose -f "${DOCKER_COMPOSE_FILE}" up -d
 }
 
 reload.nginx() {
-  docker-compose -f ${DOCKER_COMPOSE_FILE} exec ${NGINX_SERVICE_NAME} nginx -s reload
+  docker compose -f "${DOCKER_COMPOSE_FILE}" exec "${NGINX_SERVICE_NAME}" nginx -s reload
 }
 
 reload.php-fpm() {
-  docker-compose -f ${DOCKER_COMPOSE_FILE} exec ${PHP_SERVICE_NAME} sh -c 'kill -USR2 `cat /usr/local/var/run/php-fpm.pid`'
+  docker compose -f "${DOCKER_COMPOSE_FILE}" exec "${PHP_SERVICE_NAME}" sh -c 'kill -USR2 "$(cat /usr/local/var/run/php-fpm.pid)"'
 }
 
 lastmodified() {
-  docker-compose -f ${DOCKER_COMPOSE_FILE} exec ${PHP_SERVICE_NAME} sh -c "find /var/www/html -not -path '*/runtime/*' -not -path '*/web/assets/*' -not -path '*/vendor/*' -exec stat -c '%Y %n' '{}' + | sort -n"
+  docker compose -f "${DOCKER_COMPOSE_FILE}" exec "${PHP_SERVICE_NAME}" sh -c "find /var/www/html -not -path '*/runtime/*' -not -path '*/web/assets/*' -not -path '*/vendor/*' -exec stat -c '%Y %n' '{}' + | sort -n"
 }
 
-if [ "$(type -t $1)" = "function" ]; then
-  $@
+if [ "$(type -t "${1:-}")" = "function" ]; then
+  "$@"
 else
   help
 fi
