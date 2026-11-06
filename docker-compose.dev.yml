@@ -19,9 +19,9 @@ services:
       - "${HOST_NGINX_PORT:-8080}:80"
     volumes:
       - "test-app:/var/www/html:ro"
-      - "./deploy/data/nginx/root/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
-      - "./deploy/data/nginx/root/etc/nginx/fastcgi_params:/etc/nginx/fastcgi_params:ro"
-      - "./deploy/data/nginx/root/etc/nginx/conf.d:/etc/nginx/conf.d:ro"
+      - "./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./deploy/nginx/fastcgi_params:/etc/nginx/fastcgi_params:ro"
+      - "./deploy/nginx/conf.d:/etc/nginx/conf.d:ro"
     depends_on:
       - "exception-with-context-php"
 

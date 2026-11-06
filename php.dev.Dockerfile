@@ -14,13 +14,15 @@ RUN set -eux; \
       xdebug-3.5.3 \
     ;
 
-COPY ./deploy/data/php/root/usr/local/etc/ /usr/local/etc/
+COPY ./deploy/php/php-fpm.conf /usr/local/etc/php-fpm.conf
+COPY ./deploy/php/php-fpm.d/ /usr/local/etc/php-fpm.d/
+COPY ./deploy/php/conf.d/ /usr/local/etc/php/conf.d/
 
 RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
 FROM php-runtime AS development
 
-COPY ./deploy/data/php/root/var/www/html/ /var/www/html/
+COPY ./deploy/example/ /var/www/html/
 COPY ./composer.json /package-src/composer.json
 COPY ./src/ /package-src/src/
 

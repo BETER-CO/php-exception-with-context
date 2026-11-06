@@ -36,7 +36,7 @@ HOST_NGINX_PORT=8280 docker compose -f docker-compose.dev.yml up -d
 The `php-runtime` build target provides PHP 8.5, Composer 2.11.1, and Xdebug 3.5.3. It uses
 PHP's bundled development configuration with `E_ALL`, including deprecation reporting.
 
-The `development` target copies the example from `deploy/data/php/root/var/www/html` and
+The `development` target copies the example from `deploy/example` and
 installs its committed Composer lock file. The library's `composer.json` and `src/` are copied
 from this checkout into `/package-src` during the build. No published package archive is downloaded.
 
@@ -64,7 +64,7 @@ docker compose -f docker-compose.dev.yml logs -f
 ```
 
 PHP-FPM and nginx write their logs to the container output. Xdebug settings are in
-`deploy/data/php/root/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini`; the IDE listener
+`deploy/php/conf.d/docker-php-ext-xdebug.ini`; the IDE listener
 uses port 9000 on `host.docker.internal`.
 
 For CLI debugging with an IDE server mapping:
