@@ -23,7 +23,11 @@
       "type": "path",
       "url": "/package-src",
       "options": {
-        "symlink": true
+        "symlink": true,
+        "versions": {
+          "beter/exception-with-context": "dev-main"
+        },
+        "reference": "config"
       }
     }
   ]

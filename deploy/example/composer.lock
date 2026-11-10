@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39438f85dbde80f2d567fdb2629f0409",
+    "content-hash": "05ba2d04ce1732067ac71391d42d52d6",
     "packages": [
         {
             "name": "beter/exception-with-context",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "/package-src",
-                "reference": "946d90aca7800e0a27ad1c28485f0642124403ee"
+                "reference": "165b5b6b533b95eb1d025dba0f71f54757133e0f"
             },
             "require": {
                 "php": ">=7.4.0"
@@ -59,6 +59,6 @@
     "platform": {
         "php": ">=7.4.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.11.0"
 }
